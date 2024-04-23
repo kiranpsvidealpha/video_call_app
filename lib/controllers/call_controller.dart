@@ -1,9 +1,11 @@
+// ignore_for_file: body_might_complete_normally_catch_error
+
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:get/get.dart';
 import 'package:wakelock/wakelock.dart';
 
+import '../mainApp/dashBoard/landing_screen.dart';
 import '../utils/settings.dart';
-import '../mainApp/dashBoard/dashboard.dart';
 
 class CallController extends GetxController {
   RxInt myremoteUid = 0.obs;
@@ -120,7 +122,7 @@ class CallController extends GetxController {
   void onCallEnd() {
     clear();
     update();
-    Get.offAll(() => const DashboardScreen());
+    Get.offAll(() => const MyHomePage());
   }
 
   void onToggleMute() {

@@ -29,3 +29,16 @@ const SizedBox sw16 = SizedBox(width: 16);
 const SizedBox sw20 = SizedBox(width: 20);
 const SizedBox sw50 = SizedBox(width: 50);
 const SizedBox sw70 = SizedBox(width: 70);
+
+///Media Query
+Size displaySize(BuildContext context) {
+  return MediaQuery.of(context).size;
+}
+
+double displayHeight(BuildContext context) {
+  return displaySize(context).height;
+}
+
+double displayWidth(BuildContext context) {
+  return displaySize(context).width;
+}

@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:video_call_app/mainApp/dashBoard/dashboard.dart';
-import 'package:video_call_app/reusables/navigators.dart';
 
 import '../../../reusables/colors.dart';
 import '../../../reusables/snack_bar.dart';
@@ -66,6 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 extendBodyBehindAppBar: true,
                 body: SafeArea(
                   child: SingleChildScrollView(
+                    // Wrap with SingleChildScrollView
                     child: Padding(
                       padding: const EdgeInsets.all(16),
                       child: SizedBox(
@@ -80,8 +79,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               Container(
                                 alignment: Alignment.topCenter,
                                 child: SvgPicture.asset(
-                                  width: 250,
                                   AssetsConstants.appLogo,
+                                  width: 250,
                                   colorFilter: const ColorFilter.mode(selectedClr, BlendMode.srcIn),
                                 ),
                               ),
@@ -94,18 +93,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              const SizedBox(
-                                height: 20,
-                              ),
-
-                              const SizedBox(height: 5),
-                              //Subheading
+                              const SizedBox(height: 20),
                               const Text(
                                 "to access your dashboard",
                                 style: TextStyle(fontSize: 12, letterSpacing: 1),
                               ),
                               const SizedBox(height: 20),
-                              //email form field
                               SizedBox(
                                 width: width,
                                 child: TextFormField(
@@ -116,64 +109,41 @@ class _LoginScreenState extends State<LoginScreen> {
                                     labelText: "User ID *",
                                     suffixIcon: Icon(LineIcons.userShield),
                                   ),
-                                  validator: (String? val) {
-                                    return validateEmail(val!, true);
-                                  },
+                                  validator: (val) => validateEmail(val!, true),
                                 ),
                               ),
                               const SizedBox(height: 25),
-                              //Password form field
                               SizedBox(
                                 width: width,
                                 child: ValueListenableBuilder(
                                   valueListenable: viewPassword,
-                                  builder: (BuildContext context, bool value, Widget? child) {
-                                    return TextFormField(
-                                      controller: passwordController,
-                                      keyboardType: TextInputType.text,
-                                      textInputAction: TextInputAction.done,
-                                      obscureText: viewPassword.value,
-                                      obscuringCharacter: "*",
-                                      decoration: InputDecoration(
-                                        labelText: "Password *",
-                                        suffixIcon: IconButton(
-                                          icon: Icon(viewPassword.value ? LineIcons.eye : LineIcons.eyeSlash),
-                                          onPressed: () {
-                                            viewPassword.value = !viewPassword.value;
-                                          },
-                                        ),
+                                  builder: (context, value, child) => TextFormField(
+                                    controller: passwordController,
+                                    keyboardType: TextInputType.text,
+                                    textInputAction: TextInputAction.done,
+                                    obscureText: viewPassword.value,
+                                    obscuringCharacter: "*",
+                                    decoration: InputDecoration(
+                                      labelText: "Password *",
+                                      suffixIcon: IconButton(
+                                        icon: Icon(viewPassword.value ? LineIcons.eye : LineIcons.eyeSlash),
+                                        onPressed: () {
+                                          viewPassword.value = !viewPassword.value;
+                                        },
                                       ),
-                                      validator: (String? val) {
-                                        return validatePassword(val!);
-                                      },
-                                      onFieldSubmitted: (value) {
-                                        LoginScreenAdmin(context);
-                                      },
-                                    );
-                                  },
+                                    ),
+                                    validator: (val) => validatePassword(val!),
+                                    onFieldSubmitted: (value) {
+                                      LoginScreenAdmin(context);
+                                    },
+                                  ),
                                 ),
                               ),
-
-                              /// remember Me and Forgot password
                               SizedBox(
                                 width: width,
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                    const Align(
-                                      alignment: Alignment.bottomLeft,
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            "Remember me",
-                                            textAlign: TextAlign.right,
-                                            style: TextStyle(fontSize: 12, letterSpacing: 1, color: grey),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
                                     Align(
                                       alignment: Alignment.bottomRight,
                                       child: TextButton(
@@ -243,7 +213,6 @@ class _LoginScreenState extends State<LoginScreen> {
             email: emailController.text,
             password: passwordController.text,
           ));
-      pushSimple(context, const DashboardScreen());
     } else {
       showSnackBar(context, "Invalid email or password\nPlease retry", error: true);
     }

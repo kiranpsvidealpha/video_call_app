@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'bloc/detect_user_changes.dart';
+import 'bloc/fetch_all_users_bloc.dart';
 import 'bloc/login_with_email_bloc.dart';
 import 'bloc/permission_bloc.dart';
 import 'firebase_options.dart';
@@ -53,6 +54,7 @@ class _PrivateChatAppState extends State<PrivateChatApp> with WidgetsBindingObse
       providers: [
         BlocProvider(create: (context) => EmailAuthBloc()),
         BlocProvider(create: (context) => PermissionsBloc()),
+        BlocProvider(create: (context) => FetchAllUsersBloc()),
         BlocProvider(create: (context) => DetectFirebaseUserChangesBloc()),
       ],
       child: MultiProvider(

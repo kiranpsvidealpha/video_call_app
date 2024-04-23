@@ -14,7 +14,6 @@ dependencies:
   dio:
   get:   
   intl: 
-  wakelock: ^0.6.1+2
   pip_view: 
   provider:
   line_icons: 
@@ -26,6 +25,7 @@ dependencies:
   cupertino_icons:
   flutter_contacts:
   agora_rtc_engine: 
+  wakelock: ^0.6.1+2
   connectivity_plus: 
   easy_splash_screen: 
   permission_handler:
@@ -35,6 +35,7 @@ dependencies:
   flutter_launcher_icons:
   introduction_screen: ^3.1.14
   firebase_core: ^2.27.0
+  cloud_firestore: ^4.17.0
 
 dev_dependencies:
   flutter_test:
