@@ -1,0 +1,62 @@
+name: video_call_app
+description: "A new Flutter project."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.6 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  dio:
+  get:   
+  intl: 
+  wakelock: ^0.6.1+2
+  pip_view: 
+  provider:
+  line_icons: 
+  flutter_svg:
+  flutter_bloc:
+  firebase_auth:
+  country_picker:
+  carousel_slider:
+  cupertino_icons:
+  flutter_contacts:
+  agora_rtc_engine: 
+  connectivity_plus: 
+  easy_splash_screen: 
+  permission_handler:
+  firebase_messaging:
+  agora_token_service:
+  phone_numbers_parser: 
+  flutter_launcher_icons:
+  introduction_screen: ^3.1.14
+  firebase_core: ^2.27.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/image/
+    - assets/image/chat_background_two.png
+    - assets/image/svg/
+    - assets/splashScreen/splash.png
+
+  fonts:
+    - family: UniformRounded
+      fonts:
+        - asset: assets/fonts/ur.otf
+        - asset: assets/audio/outgoing_music.mp3
+        - asset: assets/audio/ringing_music.mp3
+        - asset: assets/fonts/urbold.otf
+        - asset: assets/fonts/urmedium.otf
