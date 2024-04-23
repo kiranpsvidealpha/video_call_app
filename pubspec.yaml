@@ -5,48 +5,82 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.2.6 <4.0.0'
+  sdk: '>=2.18.6 <3.0.0'
+  flutter: ^3.7.0
 
 dependencies:
   flutter:
     sdk: flutter
 
   dio:
-  get:   
+  hive:
   intl: 
-  pip_view: 
+  get:
+  pinput:
   provider:
-  line_icons: 
+  record:  
+  foundation:
+  grpc:
+  protobuf:
+  file_picker:
   flutter_svg:
+  hive_flutter:
+  audioplayers:
   flutter_bloc:
+  image_picker:
+  video_player:
+  url_launcher: 
+  flutter_sound:
+  firebase_core:
   firebase_auth:
   country_picker:
-  carousel_slider:
+  audio_waveforms:
   cupertino_icons:
-  flutter_contacts:
-  agora_rtc_engine: 
-  wakelock: ^0.6.1+2
-  connectivity_plus: 
+  cloud_firestore:
+  new_version_plus:
+  photo_view: ^0.14.0
+  firebase_storage:
+  carousel_slider:
+  connectivity_plus: 5.0.2
+  uni_links:
+  flutter_downloader:
+  firebase_analytics:
   easy_splash_screen: 
   permission_handler:
-  firebase_messaging:
-  agora_token_service:
-  phone_numbers_parser: 
+  firebase_app_check:
+  introduction_screen:
+  cached_network_image:
+  maps_launcher: ^2.2.0
   flutter_launcher_icons:
-  introduction_screen: ^3.1.14
-  firebase_core: ^2.27.0
-  cloud_firestore: ^4.17.0
+  fl_country_code_picker:
+  otp_timer_button:
+  flutter_contacts:
+  google_maps_flutter:
+  agora_rtc_engine: 
+  agora_token_service:
+  video_thumbnail: ^0.5.3
+  assets_audio_player: ^3.1.1
+  firebase_messaging: 14.7.17
+  awesome_notifications: ^0.8.3
+  flutter_local_notifications:
+  scrollable_positioned_list: ^0.3.8
+  http: ^1.2.0
+  path_provider: ^2.1.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner:
+  hive_generator: ^2.0.1
+  flutter_lints:
 
-  flutter_lints: ^2.0.0
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: assets/image/chatLogo.png
 
 flutter:
-
   uses-material-design: true
-
   assets:
     - assets/image/
     - assets/image/chat_background_two.png
@@ -57,7 +91,5 @@ flutter:
     - family: UniformRounded
       fonts:
         - asset: assets/fonts/ur.otf
-        - asset: assets/audio/outgoing_music.mp3
-        - asset: assets/audio/ringing_music.mp3
         - asset: assets/fonts/urbold.otf
         - asset: assets/fonts/urmedium.otf

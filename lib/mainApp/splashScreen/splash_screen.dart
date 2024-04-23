@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../reusables/assets_constants.dart';
-import '../../reusables/colors.dart';
+import '../../constants/assets_constants.dart';
+import '../network/no_internet.dart';
 import '../onboarding/onboarding_screen.dart';
+import '../../reusable/colors.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,6 +17,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
+    context.read<NetworkBloc>().add(NetworkObserve());
     super.initState();
 
     Future.delayed(const Duration(seconds: 3), () {

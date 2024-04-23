@@ -3,6 +3,10 @@ import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../main.dart';
+import '../mainApp/auth/signIn/sign_in_screen.dart';
 
 bool isLoggedIn = false;
 
@@ -28,7 +32,6 @@ class AuthenticationService {
   }
 
   //Firebase email password login
-
   Future<UserCredential?> signInUsingEmail(String email, String password) async {
     try {
       UserCredential? userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -37,19 +40,13 @@ class AuthenticationService {
       );
       return userCredential;
     } on FirebaseAuthException catch (e) {
-      debugPrint("code: ${e.code.toString()}");
       if (e.code == 'user-not-found') {
         throw 'No user found for that email.';
       } else if (e.code == 'wrong-password') {
         throw 'Wrong password provided for that user.';
-      } else if (e.code == 'network-request-failed') {
-        throw 'A network error occurred. Please check your internet connection and try again.';
       } else {
         throw 'Unable to reach our backend';
       }
-    } catch (e) {
-      // Handle generic error
-      throw 'An unexpected error occurred: $e';
     }
   }
 
@@ -72,7 +69,8 @@ class AuthenticationService {
     try {
       await FirebaseAuth.instance.signOut();
       isLoggedIn = false;
-      // Get.offAll(const SignIn(),transition: Transition.rightToLeft);
+      settingsBox.delete('chatBackground');
+      Get.offAll(const SignIn(),transition: Transition.rightToLeft);
     } catch (e) {
       if (kDebugMode) log("Error during sign-out: $e");
     }

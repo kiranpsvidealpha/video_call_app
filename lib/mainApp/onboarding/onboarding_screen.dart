@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
-import '../../reusables/assets_constants.dart';
-import '../../reusables/colors.dart';
-import '../permissions_screen.dart';
+import '../appPermissions/permissions_screen.dart';
+import '../../constants/assets_constants.dart';
+import '../../reusable/colors.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
